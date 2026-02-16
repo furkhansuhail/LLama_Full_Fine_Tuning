@@ -57,16 +57,3 @@ python scripts/train.py
 python scripts/inference.py --prompt "What is machine learning?"
 ```
 
-## Key Difference from Your QLoRA Notebooks
-
-Your existing notebooks do this:
-```
-Base Model (frozen, 4-bit) → LoRA Adapter (tiny, trainable) → Save adapter only
-```
-
-This project does this:
-```
-Base Model (ALL weights trainable, bf16) → Full training → Save entire model
-```
-
-No `peft`, no `LoraConfig`, no `BitsAndBytesConfig`. Every single weight gets updated.
